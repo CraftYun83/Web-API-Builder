@@ -4,7 +4,12 @@ const patheventele = document.getElementById('pathevent');
 const plaintextele = document.getElementById('returnplaintext');
 const jsontextele = document.getElementById('returnjson');
 const exportbuttonele = document.getElementById('exportbutton');
+var returnText = ""
+var txt = ""
+var returnTextt = ""
 var patheventsubmit = undefined;
+var fcount = 1
+var defaultpath = false
 
 function IsJsonString(str) {
   try {
@@ -32,7 +37,31 @@ function exportAPI() {
 
   document.getElementById("title").parentNode.removeChild(document.getElementById("title"))
 
-  download("exportedAPI.eapi", document.getElementById('structure-viewer').textContent)
+  returnText = ""
+  txt = ""
+  returnTextt = ""
+  fcount = 1
+
+  for (let i = 0; i < document.getElementById('structure-viewer').childNodes.length; i++) {
+      txt = document.getElementById('structure-viewer').childNodes[i].textContent
+      if (txt.includes("On POST request of")) {
+          returnText += '@app.route("'+txt.replace('On POST request of ', "").replace(' do: ', "")+'")\n'
+          returnText += 'def path'+fcount.toString()+"():\n"
+          fcount++
+      } else if (txt.includes("Return JSON >> ")) {
+          returnText += "    return json.loads('"+txt.replace("Return JSON >> ", "")+"')\n"
+      } else if (txt.includes('Return "')) {
+          returnText += '    return "'+txt.replace('Return ', "").replace('"', "")+"\n"
+      }
+  }
+
+  if (!defaultpath) {
+    returnText = '@app.route("/")\ndef index():\n    return "Hello! Welcome to my API generated using FourMC‘s API Generation Tool."\n'+returnText
+  }
+
+  returnTextt = "from flask import Flask \nimport json \napp = Flask(__name__) \n# Put extra code here. \napp.run(host='0.0.0.0', port=80)".replace("# Put extra code here. ", returnText)
+
+  download("server.py", returnTextt)
 
   document.getElementById('structure-viewer').innerHTML = '<h1 class="title" id="title">Structure Viewer</h1>'+document.getElementById('structure-viewer').innerHTML
 
@@ -45,7 +74,15 @@ patheventele.addEventListener('click', event => {
     patheventsubmit = document.getElementById('pathnamesubmit');
     patheventsubmit.addEventListener('click', event => {
       if (document.getElementById("pathnameinput").value === "") {
-        alert("You have to enter a path before submitting!")
+        if (!defaultpath) {
+          document.getElementById("structure-viewer").innerHTML += "<h1>On POST request of / do: </h1>"
+          document.getElementById("top-bar").innerHTML = ""
+          patheventsubmit.onclick = function () {}
+          curelement = "pathevent"
+          defaultpath = true
+        } else {
+          alert("You have to enter a path before submitting!")
+        }
       } else {
         document.getElementById("structure-viewer").innerHTML += "<h1>On POST request of /"+document.getElementById("pathnameinput").value+" do: </h1>"
         document.getElementById("top-bar").innerHTML = ""
