@@ -21,10 +21,11 @@ div.structure-viewer {
 
 div.structure-viewer h1.title {
     text-align: center;
+    font-size: 44px;
 }
 
 div.structure-viewer h1 {
-    font-size: 44px;
+    font-size: 32px;
     margin-left: 20px;
 }
 
