@@ -4,6 +4,16 @@ Work-In-Progress
 
 Purpose: Idk, I just wanna be better and JS and CSS. This project is very unpractical (is that a word?)
 
+To run the exported Python file:
+
+You only need to pip install pymongo if you are connecting to a MongoDB Database
+
+```
+>> pip3 install flask
+>> pip3 install pymongo
+>> python3 server.py
+```
+
 <hr/>
 
 Update: 14 April 5:05pm GMT+8:00<br/>
@@ -17,13 +27,3 @@ I have added the feature to connect your API to (currently) 1 mongodb database. 
 Note: I wanted to have a MongoDB connectivity test, but turns out, you can't connect to MongoDB databases using Javascript, only NodeJS. I might try fiure out a way to get past that, but for now, my code cannot check whether the database URI is valid or not.
 
 <hr/>
-
-To run the exported Python file:
-
-You only need to pip install pymongo if you are connecting to a MongoDB Database
-
-```
->> pip3 install flask
->> pip3 install pymongo
->> python3 server.py
-```
