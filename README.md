@@ -10,6 +10,8 @@ Planning to add option to delete paths or return functions, and being able to co
 
 To run the exported Python file:
 
-`>> pip3 install flask`
-
-`>> python3 server.py`
+`
+>> pip3 install flask
+>> pip3 install pymongo (if you are connecting to a database)
+>> python3 server.py
+`
