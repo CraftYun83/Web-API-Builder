@@ -8,9 +8,9 @@ Purpose: Idk, I just wanna be better and JS and CSS. This project is very unprac
 The project now works. You can now generate working Python servers. Currently both GET and POST requests are allowed.
 Planning to add option to delete paths or return functions, and being able to connect responses to MongoDB databases.***
 <hr/>
-***Update: 14 April 8:56pm GMT+8:00<br/>
-I have added the feature to connect your API to (currently) 1 mongodb database. I have also added the feature to clear your current workspace.***<br/>
-***Note: I wanted to have a MongoDB connectivity test, but turns out, you can't connect to MongoDB databases using Javascript, only NodeJS. I might try fiure out a way to get past that, but for now, my code cannot check whether the database URI is valid or not.***
+___Update: 14 April 8:56pm GMT+8:00___<br/>
+___I have added the feature to connect your API to (currently) 1 mongodb database. I have also added the feature to clear your current workspace.<br/>
+Note: I wanted to have a MongoDB connectivity test, but turns out, you can't connect to MongoDB databases using Javascript, only NodeJS. I might try fiure out a way to get past that, but for now, my code cannot check whether the database URI is valid or not.___
 
 To run the exported Python file:
 
