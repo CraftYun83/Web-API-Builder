@@ -27,3 +27,6 @@ I have added the feature to connect your API to (currently) 1 mongodb database. 
 Note: I wanted to have a MongoDB connectivity test, but turns out, you can't connect to MongoDB databases using Javascript, only NodeJS. I might try fiure out a way to get past that, but for now, my code cannot check whether the database URI is valid or not.
 
 <hr/>
+
+Update 15 April 5:28pm GMT+8:00<br/>
+Created a NodeJS server that will host all the files neccesary for the API creator. It also contains the feature to validate MongoDB database connections, so that's done.
