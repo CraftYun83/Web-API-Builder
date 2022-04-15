@@ -9,11 +9,15 @@ Purpose: Idk, I just wanna be better and JS and CSS. This project is very unprac
 To run my web app:
 
 1. Clone this repository
-2. Run this in terminal:
+2. Install the node dependencies:
 ```
 >> npm install express mongodb
 ```
-3. Visit http://localhost to access the API Creator.
+3. Run the NodeJS server
+```
+>> node server.js
+```
+4. Visit http://localhost to access the API Creator.
 
 <hr/>
 
