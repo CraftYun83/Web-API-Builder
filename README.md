@@ -49,3 +49,10 @@ Update 15 April 5:28pm GMT+8:00<br/>
 Created a NodeJS server that will host all the files neccesary for the API creator. It also contains the feature to validate MongoDB database connections, so that's done.
 
 <hr/>
+
+Update 15 April 10:41pm GMT+8:00<br/>
+I have added the feature to return database data by adding a variable in the plaintext element. The format for the database variable is:  
+`{#(name_of_database).(name_of_collection).(name_of_filter).(name_of_property_to_return)#}`  
+for `name_of_filter`, it will be something like `"message":"hello"`, instead of `{"message":"hello"}` which you would use for the `find_one` method in PyMongo.
+
+<hr/>
