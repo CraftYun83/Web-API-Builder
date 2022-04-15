@@ -6,7 +6,7 @@ Purpose: Idk, I just wanna be better and JS and CSS. This project is very unprac
 
 <hr/>
 
-To run my web app:
+**To run my web app:
 
 1. Clone this repository
 2. Install the node dependencies:
@@ -21,7 +21,7 @@ To run my web app:
 
 <hr/>
 
-To run the exported Python file:
+**To run the exported Python file:
 
 You only need to pip install pymongo if you are connecting to a MongoDB Database
 
