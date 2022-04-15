@@ -4,6 +4,19 @@ Work-In-Progress
 
 Purpose: Idk, I just wanna be better and JS and CSS. This project is very unpractical (is that a word?)
 
+<hr/>
+
+To run my web app:
+
+1. Clone this repository
+2. Run this in terminal:
+```
+>> npm install express mongodb
+```
+3. Visit http://localhost to access the API Creator.
+
+<hr/>
+
 To run the exported Python file:
 
 You only need to pip install pymongo if you are connecting to a MongoDB Database
@@ -30,3 +43,5 @@ Note: I wanted to have a MongoDB connectivity test, but turns out, you can't con
 
 Update 15 April 5:28pm GMT+8:00<br/>
 Created a NodeJS server that will host all the files neccesary for the API creator. It also contains the feature to validate MongoDB database connections, so that's done.
+
+<hr/>
