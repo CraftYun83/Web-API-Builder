@@ -13,6 +13,7 @@ var templateTextfront = ""
 var templateTextback = ""
 var txt = ""
 var returnTextt = ""
+let dbvar = "";
 var connecteddb = false
 var fcount = 1
 
@@ -58,7 +59,15 @@ function exportAPI() {
       } else if (txt.includes("Return JSON >> ")) {
           returnText += "    return json.loads('"+txt.replace("Return JSON >> ", "")+"')\n"
       } else if (txt.includes('Return "')) {
-          returnText += '    return "'+txt.replace('Return ', "").replace('"', "")+"\n"
+        if (txt.includes("{#") && txt.includes("#}")) {
+          dbvar = txt.substring(txt.indexOf("{#")+2, txt.indexOf("#}"))
+          dbvar = dbvar.split(".")
+          console.log(dbvar)
+          txt = txt.replace(txt.substring(txt.indexOf("{#"), txt.indexOf("#}")+2), 'client.get_database("'+dbvar[0]+'").get_collection("'+dbvar[1]+'").find_one({'+dbvar[2]+'})["'+dbvar[3])+'"]'
+          returnText += ('    return '+txt.replace('Return ', "").replace('"', "")+"\n").slice(0, -1)
+        } else {
+          returnText += ('    return "'+txt.replace('Return ', "").replace('"', "")+"\n").slice(0, -1)
+        }
       } else if (txt.includes("Connected to: ")) {
         templateTextfront = "import pymongo\n"+templateTextfront+"client = pymongo.MongoClient('"+txt.replace("Connected to: ", "")+"')\n"
       }
@@ -184,6 +193,17 @@ function clearWorkspace() {
   if (window.confirm("Are you sure you want to clear the workspace?")) {
     document.getElementById("top-bar").innerHTML = ""
     document.getElementById("structure-viewer").innerHTML = '<h1 class="title" id="title">Structure Viewer</h1>'
+    curelement = undefined;
+    patheventsubmit = undefined;
+    defaultpath = false
+    returnText = ""
+    templateTextfront = ""
+    templateTextback = ""
+    txt = ""
+    returnTextt = ""
+    dbvar = "";
+    connecteddb = false
+    fcount = 1
   }
 }
 
